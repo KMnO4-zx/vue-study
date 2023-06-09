@@ -1,5 +1,5 @@
-import {createApp} from "vue/dist/vue.esm-bundler.js"
-import App from "../../01-hello-vue/src/App"
+import {createApp} from "vue"
+import App from "./App.vue"
 
 
 // 创建应用并挂载
