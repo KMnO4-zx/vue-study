@@ -22,6 +22,9 @@
                     // data中的数据会自动和使用它的视图绑定，数据发生变化视图会自动刷新
                 }
             }, 
+            // template 是模板，它决定了组件最终的样子
+            // 定义模板的方式有三种：1 在组件中通过tempalte属性去指定
+            // 2. 直接在网页的根元素中指定
             template: "<button @click='count++'>点我一下</button> - 点了{{ count }}次"  
         }
 
@@ -29,5 +32,14 @@
         Vue.createApp(Root).mount("#app")
 
     </script>
+    <style>
+        button{
+            width: 80px;
+            height: 30px;
+            background: #a1cad6;
+            border-color: rgb(154, 127, 180);
+            border-radius: 8px;
+        }
+    </style>
 </body>
 </html>
