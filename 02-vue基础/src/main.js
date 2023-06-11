@@ -12,5 +12,6 @@ const vm = app.mount("#app")
 
 // 设置为全局变量
 window.vm = vm
+window.app = app
 // console.log(vm)
 // createApp(App).mount('#app')
