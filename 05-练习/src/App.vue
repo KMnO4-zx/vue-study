@@ -1,9 +1,23 @@
 <script setup>
-import { ref } from 'vue'
-
+import { ref, reactive } from 'vue'
+import TabItem from './components/TabItem.vue'
 // 创建一个变量记录状态
 
 const current = ref(0)
+
+const player = reactive({
+    name: '梅西',
+    img: '/images/messi.png',
+    rate: 1,
+    hot: 433760
+})
+
+const team = reactive({
+    name: '法国',
+    img: '/images/法国.jpg',
+    rate: 1,
+    hot: 333760
+})
 
 
 </script>
@@ -28,39 +42,13 @@ const current = ref(0)
       <div v-show="current === 0">
         <!-- 球员 -->
         <div class="tab-list">
-          <div class="tab-item">
-            <!-- 图片 -->
-            <div class="photo">
-              <img src="/images/messi.png" alt="梅西">
-              <span>1</span>
-            </div>
-            <!-- 描述 -->
-            <div class="desc">
-              <span class="name">梅西</span>
-              <div class="hot-bar">
-                <div class="inner">433760热度</div>
-              </div>
-            </div>
-          </div>
+          <TabItem :item="player"></TabItem>
         </div>
       </div>
       <div v-show="current === 1">
         <!-- 球队 -->
         <div class="tab-list">
-          <div class="tab-item">
-            <!-- 图片 -->
-            <div class="photo">
-              <img src="/images/法国.jpg" alt="法国">
-              <span>1</span>
-            </div>
-            <!-- 描述 -->
-            <div class="desc">
-              <span class="name">法国</span>
-              <div class="hot-bar">
-                <div class="inner">333760热度</div>
-              </div>
-            </div>
-          </div>
+          <TabItem :item="team"></TabItem>
         </div>
       </div>
 
@@ -107,61 +95,5 @@ const current = ref(0)
   margin: 20px;
 }
 
-.tab-item {
-  display: flex;
-  margin-bottom: 40px;
-}
 
-.photo {
-  width: 150px;
-  position: relative;
-  overflow: hidden;
-  background-color: #fff;
-  border-radius: 20px;
-}
-
-.photo img {
-  width: 100%;
-  vertical-align: bottom;
-}
-
-.photo span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background-color: #F36600;
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom-right-radius: 20px;
-}
-
-.desc {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-evenly;
-  font-size: 30px;
-  color: #fff;
-  flex: auto;
-  margin-left: 30px;
-  
-}
-
-.hot-bar {
-  background-color: #032666;
-  border-radius: 20px;
-  text-indent: 0.5em;
-}
-
-.inner {
-  border-radius: 20px;
-  background-image: linear-gradient(90deg, #B90334 50%, #4D0211);
-  white-space: nowrap;
-  width: 10%;
-}
 </style>
