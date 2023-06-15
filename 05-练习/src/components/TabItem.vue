@@ -3,7 +3,7 @@ import { reactive, ref } from "vue";
 import Photo from './Photo.vue'
 import HotBar from './HotBar.vue'
 
-const props =  defineProps(["item"])
+const props = defineProps(["item", 'max-hot'])
 const item = props.item
 
 // console.log(props.item.name, props.item.hot, props.item.img);
@@ -16,7 +16,7 @@ const item = props.item
         <!-- 描述 -->
         <div class="desc">
             <span class="name">{{ item.name }}</span>
-            <HotBar :hot="item.hot" :max-hot="item.hot"></HotBar>
+            <HotBar :hot="item.hot" :max-hot="props.maxHot"></HotBar>
         </div>
     </div>
 </template>
@@ -38,5 +38,4 @@ const item = props.item
     margin-left: 30px;
 
 }
-
 </style>
