@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from "vue";
-import MyBox from './components/MyBox.vue';
+import A from './components/A.vue'
+import B from './components/B.vue'
 
-const count = ref(0)
+const isShow = ref(true)
 
 </script>
 
 <template>
-  <h1>爷是根组件 App</h1>
-  <MyBox :count="count"></MyBox>
-  <button @click="count++">点我一下</button>
+  <button @click="isShow = !isShow">isShow</button>
+  <!-- component 动态组件 -->
+  <component :is="isShow ? A : B">components</component>
 </template>
