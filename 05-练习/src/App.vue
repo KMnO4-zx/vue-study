@@ -56,10 +56,10 @@ const maxHot = players[0].hot
 <template>
   <Tab>
     <template #0>
-      <TabList :items="players" :items-max-hot="itemsMaxHot"></TabList>
+      <TabList :items="players" :items-max-hot="maxHot"></TabList>
     </template>
     <template #1>
-      <TabList :items="teams" :items-max-hot="itemsMaxHot"></TabList>
+      <TabList :items="teams" :items-max-hot="maxHot"></TabList>
     </template>
   </Tab>
 </template>
