@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from "vue";
 import A from './components/A.vue'
-import B from './components/B.vue'
+import C from './components/C.vue'
 
 const isShow = ref(true)
 
 </script>
 
 <template>
-  <button @click="isShow = !isShow">isShow</button>
-  <!-- component 动态组件 -->
-  <component :is="isShow ? A : B">components</component>
+  <h1>属性的透传</h1>
+  <h2 class="box1">我是h2</h2>
+  <C class="box2"></C>
 </template>
