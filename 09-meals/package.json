@@ -1,5 +1,5 @@
 {
-  "name": "vue-project",
+  "name": "09-meals",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "pinia": "^2.1.4",
     "vue": "^3.3.4"
   },
   "devDependencies": {
