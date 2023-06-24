@@ -53,5 +53,47 @@ export const useMealsStore = defineStore("meals", {
                 img: "/images/meals/7.png"
             }
         ],
-    })
+        keyword: ''
+    }),
+    getters: {
+        filterMeals: state => {
+            return state.data.filter(item => item.title.indexOf(state.keyword) != -1)
+        },
+
+        // 获取购物车中的所有商品
+        cartMeals: state => {
+            return state.data.filter((item) => item.count > 0)
+        },
+        // 获取购物车中商品总数量
+        totalCount: state => {
+            // 如果购物车中没有商品直接返回0
+            if (state.cartMeals.length <= 0) return 0
+            // 购物车中有商品
+            return state.cartMeals.reduce((result, item) => result + item.count, 0)
+        },
+        // 获取购物车中的商品总价格
+        amount: state => {
+            // 如果购物车中没有商品直接返回0
+            if (state.cartMeals.length <= 0) return 0
+            // 购物车中有商品
+            return state.cartMeals.reduce((result, item) => result + item.count * item.price, 0)
+        }
+    },
+    actions: {
+        addMealToCart(meal) {
+            // 修改购买食物的数量
+            // meal还没有添加到购物车
+            if (isNaN(meal.count)) {
+                meal.count = 0
+            }
+
+            meal.count++
+        },
+        subMealFormCart(meal) {
+            // 修改购买食物的数量
+            // meal还没有添加到购物车
+            if (isNaN(meal.count) || meal.count <= 0) return
+            meal.count--
+        }
+    }
 })
