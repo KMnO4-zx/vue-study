@@ -1,17 +1,18 @@
 <script setup>
-import { useMealsStore } from '@/store/meals';
+
 import Meal from './Meal.vue'
 
-// 加载sotre中的数据
-const meals = useMealsStore()
+
+const props = defineProps(['meals'])
+
 
 </script>
 
 <template>
     <!-- 所有的汉堡容器 -->
     <div class="meals">
-        <Meal v-for="item in  meals.filterMeals" :meal="item"></Meal>
-        <template v-if="meals.filterMeals.length == 0">
+        <Meal :desc="$attrs.desc" v-for="item in props.meals" :meal="item"></Meal>
+        <template v-if="!props.meals || props.meals.length == 0">
             <h2>没有找到相关商品</h2>
         </template>
     </div>

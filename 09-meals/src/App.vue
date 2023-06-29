@@ -5,16 +5,14 @@ import MealsFilter from './components/MealsFilter/MealsFilter.vue';
 import CartBar from './components/Cart/cartBar.vue';
 
 
-
-
 const meals = useMealsStore()
-console.log(meals.data);
+
 
 </script>
 
 <template>
   <MealsFilter></MealsFilter>
-  <Meals></Meals>
+  <Meals :desc="true" :meals="meals.filterMeals"></Meals>
   <CartBar></CartBar>
 </template>
   

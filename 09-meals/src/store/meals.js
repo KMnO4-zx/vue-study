@@ -56,6 +56,7 @@ export const useMealsStore = defineStore("meals", {
         keyword: ''
     }),
     getters: {
+        // 根据关键字过滤汉堡
         filterMeals: state => {
             return state.data.filter(item => item.title.indexOf(state.keyword) != -1)
         },
@@ -94,6 +95,10 @@ export const useMealsStore = defineStore("meals", {
             // meal还没有添加到购物车
             if (isNaN(meal.count) || meal.count <= 0) return
             meal.count--
+        },
+        // 清空购物车
+        clearCart() {
+            this.cartMeals.forEach(item => item.count = 0)
         }
     }
 })

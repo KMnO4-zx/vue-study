@@ -9,9 +9,11 @@ const emits = defineEmits(['hide'])
 
 
 <template>
-    <div @click.self="$emit('hide')" class="mask" v-show="props.isShow">
-        <slot></slot>
-    </div>
+    <Teleport to="body">
+        <div :="$attrs" @click.self="$emit('hide')" class="mask" v-show="props.isShow">
+            <slot></slot>
+        </div>
+    </Teleport>
 </template>
 
 <style scoped>
@@ -22,6 +24,6 @@ const emits = defineEmits(['hide'])
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 999;
+    z-index: 9999;
 }
 </style>
